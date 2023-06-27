@@ -1,0 +1,5 @@
+package edu.pe.servicio.producto.models.entities;
+
+public class Producto {
+
+}
