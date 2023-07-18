@@ -1,0 +1,54 @@
+{
+  "configurations": [
+    {
+      "type": "java",
+      "name": "Spring Boot-ConfigServiceApplication<config-service>",
+      "request": "launch",
+      "cwd": "${workspaceFolder}",
+      "mainClass": "edu.pe.config.service.ConfigServiceApplication",
+      "projectName": "config-service",
+      "args": "",
+      "envFile": "${workspaceFolder}/.env"
+    },
+    {
+      "type": "java",
+      "name": "Spring Boot-EurekaServiceApplication<eureka-service>",
+      "request": "launch",
+      "cwd": "${workspaceFolder}",
+      "mainClass": "edu.pe.eureka.service.EurekaServiceApplication",
+      "projectName": "eureka-service",
+      "args": "",
+      "envFile": "${workspaceFolder}/.env"
+    },
+    {
+      "type": "java",
+      "name": "Spring Boot-UtpServicioItemsApplication<utp-servicio-items>",
+      "request": "launch",
+      "cwd": "${workspaceFolder}",
+      "mainClass": "edu.pe.servicio.items.UtpServicioItemsApplication",
+      "projectName": "utp-servicio-items",
+      "args": "",
+      "envFile": "${workspaceFolder}/.env"
+    },
+    {
+      "type": "java",
+      "name": "Spring Boot-UtpServicioProductosApplication<utp-servicio-productos>",
+      "request": "launch",
+      "cwd": "${workspaceFolder}",
+      "mainClass": "edu.pe.servicio.producto.UtpServicioProductosApplication",
+      "projectName": "utp-servicio-productos",
+      "args": "",
+      "envFile": "${workspaceFolder}/.env"
+    },
+    {
+      "type": "java",
+      "name": "Spring Boot-UtpServicioRecomendacionesApplication<utp-servicio-recomendaciones>",
+      "request": "launch",
+      "cwd": "${workspaceFolder}",
+      "mainClass": "edu.pe.servicio.recomendaciones.UtpServicioRecomendacionesApplication",
+      "projectName": "utp-servicio-recomendaciones",
+      "args": "",
+      "envFile": "${workspaceFolder}/.env"
+    }
+  ]
+}

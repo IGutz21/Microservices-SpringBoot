@@ -1,0 +1,5 @@
+package edu.pe.servicio.items.models.entities;
+
+public class Item {
+
+}
