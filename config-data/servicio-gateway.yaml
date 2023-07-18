@@ -20,12 +20,12 @@ spring:
         - id: servicio-items
           uri: lb://servicio-items
           predicates:
-            - Path=/**
+            - Path=/items/**
         - id: servicio-productos
           uri: lb://servicio-productos
           predicates:
-            - Path=/**
+            - Path=/productos/**
         - id: servicio-recomendaciones
           uri: lb://servicio-recomendaciones
           predicates:
-            - Path=/**
+            - Path=/recomendaciones/**

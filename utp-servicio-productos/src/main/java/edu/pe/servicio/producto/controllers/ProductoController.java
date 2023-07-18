@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -17,13 +18,14 @@ import edu.pe.servicio.producto.models.entities.Producto;
 import edu.pe.servicio.producto.services.IProductoService;
 
 @RestController
+@RequestMapping("productos")
 public class ProductoController {
 
 	@Autowired
 	private IProductoService productoService;
 
 	@ResponseStatus(HttpStatus.OK)
-	@GetMapping("/productos")
+	@GetMapping("")
 	public List<Producto> Listar() {
 		return productoService.findAll();
 	}
@@ -36,18 +38,18 @@ public class ProductoController {
 	}
 	
 	@ResponseStatus(HttpStatus.CREATED)
-	@PostMapping("/productos")
+	@PostMapping("")
 	public Producto Agregar(@RequestBody Producto producto) {
 		return productoService.save(producto);
 	}
 	
-	@PutMapping("/productos/{id}")
+	@PutMapping("/{id}")
 	public Producto Modificar(@PathVariable("id") Long id, @RequestBody Producto producto) {
 		return productoService.update(id, producto);
 	}
 	
 	@ResponseStatus(HttpStatus.NO_CONTENT)
-	@DeleteMapping("/productos/{id}")
+	@DeleteMapping("/{id}")
 	public void Eliminar(@PathVariable("id") Long id) {
 		productoService.delete(id);
 	}

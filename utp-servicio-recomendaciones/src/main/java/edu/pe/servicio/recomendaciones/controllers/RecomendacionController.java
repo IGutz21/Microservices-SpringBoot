@@ -9,19 +9,21 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import edu.pe.servicio.recomendaciones.models.entities.Recomendacion;
 import edu.pe.servicio.recomendaciones.services.IRecomendacionService;
 
 @RestController
+@RequestMapping("recomendaciones")
 public class RecomendacionController {
 
 	@Autowired
 	private IRecomendacionService recomendacionService;
 	
 	
-	@GetMapping("/recomendaciones")
+	@GetMapping("")
 	public List<Recomendacion> Listar() {
 		return recomendacionService.findAll();
 	}
@@ -31,17 +33,17 @@ public class RecomendacionController {
 		return recomendacionService.findById(id);
 	}
 	
-	@PostMapping("/recomendaciones")
+	@PostMapping("")
 	public Recomendacion Agregar(@RequestBody Recomendacion recomendacion) {
 		return recomendacionService.save(recomendacion);
 	}
 	
-	@PutMapping("/recomendaciones/{id}")
+	@PutMapping("/{id}")
 	public Recomendacion Modificar(@PathVariable("id") Long id, @RequestBody Recomendacion recomendacion) {
 		return recomendacionService.update(id, recomendacion);
 	}
 	
-	@DeleteMapping("/recomendaciones/{id}")
+	@DeleteMapping("/{id}")
 	public void Eliminar(@PathVariable("id") Long id) {
 		recomendacionService.delete(id);
 	}
