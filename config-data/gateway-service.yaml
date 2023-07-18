@@ -1,12 +1,12 @@
 server:
-  port: 8004
+  port: 8080
 
 eureka:
   client:
     fetch-registry: true
     register-with-eureka: true
     service-url:
-      default-zone: http://localhost:8761
+      default-zone: http://localhost:8761/eureka
   instance:
     hostname: localhost
 
@@ -17,15 +17,15 @@ spring:
         locator:
           enabled: true
       routes:
-        - id: servicio-productos
-          uri: lb://servicio-productos
-          predicates:
-            - Path =/productos
         - id: servicio-items
           uri: lb://servicio-items
           predicates:
-            - Path =/listar
+            - Path=/**
+        - id: servicio-productos
+          uri: lb://servicio-productos
+          predicates:
+            - Path=/**
         - id: servicio-recomendaciones
           uri: lb://servicio-recomendaciones
           predicates:
-            - Path =/**
+            - Path=/**
