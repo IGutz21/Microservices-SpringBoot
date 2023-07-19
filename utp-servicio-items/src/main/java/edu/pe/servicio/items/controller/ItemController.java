@@ -12,7 +12,6 @@ import edu.pe.servicio.items.models.entities.Item;
 import edu.pe.servicio.items.services.ItemService;
 
 @RestController
-@RequestMapping("items")
 public class ItemController {
 
 	@Autowired

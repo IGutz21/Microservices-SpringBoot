@@ -18,38 +18,37 @@ import edu.pe.servicio.producto.models.entities.Producto;
 import edu.pe.servicio.producto.services.IProductoService;
 
 @RestController
-@RequestMapping("productos")
 public class ProductoController {
 
 	@Autowired
 	private IProductoService productoService;
 
 	@ResponseStatus(HttpStatus.OK)
-	@GetMapping("")
+	@GetMapping("productos")
 	public List<Producto> Listar() {
 		return productoService.findAll();
 	}
 
 	
 	@ResponseStatus(HttpStatus.OK)
-	@GetMapping("/ver/{id}")
+	@GetMapping("productos/ver/{id}")
 	public Producto BuscarProducto(@PathVariable Long id) {
 		return productoService.findById(id);
 	}
 	
 	@ResponseStatus(HttpStatus.CREATED)
-	@PostMapping("")
+	@PostMapping("productos")
 	public Producto Agregar(@RequestBody Producto producto) {
 		return productoService.save(producto);
 	}
 	
-	@PutMapping("/{id}")
+	@PutMapping("productos/{id}")
 	public Producto Modificar(@PathVariable("id") Long id, @RequestBody Producto producto) {
 		return productoService.update(id, producto);
 	}
 	
 	@ResponseStatus(HttpStatus.NO_CONTENT)
-	@DeleteMapping("/{id}")
+	@DeleteMapping("productos/{id}")
 	public void Eliminar(@PathVariable("id") Long id) {
 		productoService.delete(id);
 	}

@@ -16,34 +16,32 @@ import edu.pe.servicio.recomendaciones.models.entities.Recomendacion;
 import edu.pe.servicio.recomendaciones.services.IRecomendacionService;
 
 @RestController
-@RequestMapping("recomendaciones")
 public class RecomendacionController {
 
 	@Autowired
 	private IRecomendacionService recomendacionService;
-	
-	
-	@GetMapping("")
+
+	@GetMapping("/recomendaciones")
 	public List<Recomendacion> Listar() {
 		return recomendacionService.findAll();
 	}
-	
-	@GetMapping("/ver/{id}")
+
+	@GetMapping("/recomendaciones/ver/{id}")
 	public Recomendacion BuscarRecomendacion(@PathVariable Long id) {
 		return recomendacionService.findById(id);
 	}
-	
-	@PostMapping("")
+
+	@PostMapping("/recomendaciones")
 	public Recomendacion Agregar(@RequestBody Recomendacion recomendacion) {
 		return recomendacionService.save(recomendacion);
 	}
-	
-	@PutMapping("/{id}")
+
+	@PutMapping("/recomendaciones/{id}")
 	public Recomendacion Modificar(@PathVariable("id") Long id, @RequestBody Recomendacion recomendacion) {
 		return recomendacionService.update(id, recomendacion);
 	}
-	
-	@DeleteMapping("/{id}")
+
+	@DeleteMapping("/recomendaciones/{id}")
 	public void Eliminar(@PathVariable("id") Long id) {
 		recomendacionService.delete(id);
 	}
